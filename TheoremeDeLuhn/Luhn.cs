@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace TheoremeDeLuhn
 {
@@ -45,5 +46,19 @@ namespace TheoremeDeLuhn
       string s = number.ToString();
       return s.Select((c, i) => (c - '0') << ((s.Length - i - 1) & 1)).Sum(n => n > 9 ? n - 9 : n) % 10 == 0;
     }
+
+    public static string Reverse(this string s)
+    {
+      char[] charArray = s.ToCharArray();
+      Array.Reverse(charArray);
+      return new string(charArray);
+    }
+
+    //public static bool CheckLuhn(long n)
+    //{
+    //  //int s1 = n.Shatter(true).Subset(2).Arithmetic('+');
+    //  //int s2 = n.Shatter(true).Subset(1, -1, 2).ArithmeticRA('*', 2).ShatterAndSum().Arithmetic('+');
+    //  //return (s1 + s2) % 10 == 0 ? true : false;
+    //}
   }
 }
